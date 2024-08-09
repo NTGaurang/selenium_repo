@@ -1,0 +1,8 @@
+pages/LogInpage.class
+Listeners/ExtentReport.class
+pages/HomePage.class
+pages/MyAccountpage.class
+pages/Cartpage.class
+Tests/BasicSeleniumTest.class
+pages/Wishlistpage.class
+pages/Comparepage.class

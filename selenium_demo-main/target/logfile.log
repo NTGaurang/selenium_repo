@@ -1,0 +1,4 @@
+2024-08-09 09:59:31 INFO  Tests.BasicSeleniumTest - ChromeDriver initialized successfully.
+2024-08-09 09:59:34 INFO  Tests.BasicSeleniumTest - Page title: Google
+2024-08-09 09:59:35 INFO  Tests.BasicSeleniumTest - Search Button is as Expected
+2024-08-09 09:59:39 INFO  Tests.BasicSeleniumTest - Search Text: WebDriver
