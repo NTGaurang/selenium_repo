@@ -25,7 +25,7 @@ jobs:
 
   - script: |
       cd selenium_demo-main
-      mvn clean test
+      mvn -B clean test | tee target/mvn-build.log
     displayName: 'Build with Maven'
 
   - task: PublishBuildArtifacts@1
@@ -50,3 +50,11 @@ jobs:
       publishLocation: 'Container'
     condition: always()
     displayName: 'Publish Extent Report'
+  
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: 'Magneto/target/mvn-build.log'
+      artifactName: 'MavenBuildLog'
+      publishLocation: 'Container'
+    condition: always()
+    displayName: 'Publish Maven Build Log'
