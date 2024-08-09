@@ -35,3 +35,8 @@ jobs:
       publishLocation: 'Container'
     condition: always()
     displayName: 'Upload Test Reports'
+  
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/TEST-*.xml'
