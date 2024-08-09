@@ -1,0 +1,37 @@
+trigger:
+- main
+
+jobs:
+- job: SeleniumTest
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  steps:
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '11'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
+    displayName: 'Set up JDK 11'
+    
+  - script: |
+      sudo apt-get update
+      sudo apt-get install -y wget
+      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      sudo dpkg -i google-chrome-stable_current_amd64.deb
+      sudo apt-get -f install
+      google-chrome --version
+    displayName: 'Set up Chrome'
+
+  - script: |
+      cd Magneto
+      mvn -B clean test
+    displayName: 'Build with Maven'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: 'Magneto/target'
+      artifactName: 'Selenium-test-reports'
+      publishLocation: 'Container'
+    condition: always()
+    displayName: 'Upload Test Reports'
