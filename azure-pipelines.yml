@@ -25,7 +25,7 @@ jobs:
 
   - script: |
       cd Magneto
-      mvn -B clean test | tee target/mvn-build.log
+      mvn -B clean test
     displayName: 'Build with Maven'
 
   - task: PublishBuildArtifacts@1
@@ -36,10 +36,3 @@ jobs:
     condition: always()
     displayName: 'Upload Test Reports'
   
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathToPublish: 'Magneto/target/mvn-build.log'
-      artifactName: 'MavenBuildLog'
-      publishLocation: 'Container'
-    condition: always()
-    displayName: 'Publish Maven Build Log'
