@@ -35,4 +35,19 @@ jobs:
       publishLocation: 'Container'
     condition: always()
     displayName: 'Upload Test Reports'
+
+    - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: 'selenium_demo-main/target/logfile.log'
+      artifactName: 'Selenium-logs'
+      publishLocation: 'Container'
+    condition: always()
+    displayName: 'Publish Log Files'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: 'selenium_demo-main/target/userExtent.html'
+      artifactName: 'Selenium-Report'
+      publishLocation: 'Container'
+    condition: always()
+    displayName: 'Publish Extent Report'
   
