@@ -27,15 +27,7 @@ jobs:
       cd Magneto
       mvn -B clean test
     displayName: 'Build with Maven'
-
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathToPublish: 'Magneto/target'
-      artifactName: 'Selenium-test-reports'
-      publishLocation: 'Container'
-    condition: always()
-    displayName: 'Upload Test Reports'
-
+  
     - task: PublishBuildArtifacts@1
     inputs:
       pathToPublish: 'selenium_demo-main/target/logfile.log'
@@ -43,6 +35,7 @@ jobs:
       publishLocation: 'Container'
     condition: always()
     displayName: 'Publish Log Files'
+    
   - task: PublishBuildArtifacts@1
     inputs:
       pathToPublish: 'selenium_demo-main/target/userExtent.html'
