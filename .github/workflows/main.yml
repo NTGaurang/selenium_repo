@@ -19,7 +19,7 @@ jobs:
         run: |
           cd Magneto
           mvn -B clean test
-      - name: Upload Test Reports
+      - name: Upload Test Report
         uses: actions/upload-artifact@v3
         with:
           name: Selenium-test-reports
